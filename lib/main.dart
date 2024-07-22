@@ -4,6 +4,7 @@ import 'package:flutter_mvvm_demo/viewModels/initialize/initialize_view_model.da
 import 'package:provider/provider.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   InitializeViewModel initializeViewModel = InitializeViewModel();
   await initializeViewModel.init();
 
