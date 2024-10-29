@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
-class InitializeViewModel extends ChangeNotifier {
+import '../../api/header.dart';
+
+class GlobalViewModel extends ChangeNotifier {
   String? version = "loading";
   final storage = const FlutterSecureStorage();
 
@@ -11,6 +13,10 @@ class InitializeViewModel extends ChangeNotifier {
     version = await initPackageInfo();
 
     notifyListeners();
+  }
+
+  Map<String, String> get plantHeaders {
+    return PlantHeaders().setPlantIDHeader("", token: "");
   }
 
   /// 讀取版本號
